@@ -136,9 +136,12 @@ Os comandos de ping devem ser escolhidos conforme a origem do teste. Primeiras t
 - README.md: documentação.
 - [projeto-rede-empresa.pkt](projeto-rede-empresa.pkt): simulação salva.
 - [imagens/](imagens/): capturas de validação de VLANs, trunk, interfaces e DHCP.
+- [configs/R1.txt](configs/R1.txt): configuração do roteador obtida com `show running-config`.
+- [configs/SW1.txt](configs/SW1.txt): configuração do switch obtida com `show running-config`.
+
+As exportações preservam os comandos fornecidos, com espaçamento e separadores redundantes normalizados. No SW1, a saída não inclui as definições das VLANs armazenadas na base de VLANs; consulte a tabela de endereçamento e a captura de `show vlan brief` para os IDs e nomes. Para recriar o switch, crie as VLANs 10 (ADMINISTRATIVO), 20 (TI) e 30 (VISITANTES) antes de validar as portas.
 
 ### Documentação pendente
-- Exportar as saídas completas de `show running-config` para `configs/R1.txt` e `configs/SW1.txt`.
 - Adicionar capturas dos pings após a aplicação da ACL.
 
 ## Como reproduzir
