@@ -95,6 +95,23 @@ Capturas obtidas durante a montagem e validação do laboratório:
 **Seis concessões DHCP**
 ![Concessões DHCP do R1](imagens/dhcp.png)
 
+### Evidências dos testes após a ACL
+
+**Visitantes: gateway e outro visitante acessíveis (0% de perda)**
+![Pings permitidos na rede de Visitantes](imagens/ping-visitantes-permitidos.png)
+
+**Visitantes: acesso a Administrativo e TI bloqueado**
+O gateway 192.168.30.1 retorna `Destination host unreachable` para os destinos 192.168.10.21 e 192.168.20.21.
+![Pings bloqueados pela ACL](imagens/ping-visitantes-bloqueados.png)
+
+**Administrativo para TI: comunicação preservada (0% de perda)**
+Teste executado a partir do Administrativo para 192.168.20.21.
+![Ping do Administrativo para TI](imagens/ping-adm-ti.png)
+
+**Contadores da ACL**
+Nesta nova captura, a regra 10 apresenta 6 correspondências, a regra 20 apresenta 4 e a regra 30 apresenta 8. São valores de outra sessão de testes; os contadores não representam totais históricos permanentes.
+![Contadores da ACL após os testes](imagens/acl-contadores.png)
+
 ### Comandos de verificação
 No SW1:
 ```text
@@ -140,9 +157,6 @@ Os comandos de ping devem ser escolhidos conforme a origem do teste. Primeiras t
 - [configs/SW1.txt](configs/SW1.txt): configuração do switch obtida com `show running-config`.
 
 As exportações preservam os comandos fornecidos, com espaçamento e separadores redundantes normalizados. No SW1, a saída não inclui as definições das VLANs armazenadas na base de VLANs; consulte a tabela de endereçamento e a captura de `show vlan brief` para os IDs e nomes. Para recriar o switch, crie as VLANs 10 (ADMINISTRATIVO), 20 (TI) e 30 (VISITANTES) antes de validar as portas.
-
-### Documentação pendente
-- Adicionar capturas dos pings após a aplicação da ACL.
 
 ## Como reproduzir
 1. Abrir projeto-rede-empresa.pkt no Packet Tracer.
