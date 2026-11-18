@@ -80,6 +80,21 @@ A saída de show access-lists registrou:
 
 Esses valores são uma captura do momento dos testes e podem aumentar com novas tentativas.
 
+### Evidências da configuração
+Capturas obtidas durante a montagem e validação do laboratório:
+
+**VLANs e portas do switch**
+![VLANs e portas do SW1](imagens/vlans.png)
+
+**Trunk com as VLANs 10, 20 e 30**
+![Trunk do SW1](imagens/trunk.png)
+
+**Gateways e subinterfaces ativos**
+![Interfaces do R1](imagens/interfaces.png)
+
+**Seis concessões DHCP**
+![Concessões DHCP do R1](imagens/dhcp.png)
+
 ### Comandos de verificação
 No SW1:
 ```text
@@ -119,12 +134,15 @@ Os comandos de ping devem ser escolhidos conforme a origem do teste. Primeiras t
 
 ## Arquivos do repositório
 - README.md: documentação.
-- Projeto-Rede-Empresa.pkt: adicionar a simulação salva.
-- imagens/: adicionar topologia e capturas de validação.
-- configs/R1.txt e configs/SW1.txt: adicionar as saídas de show running-config de cada equipamento.
+- [projeto-rede-empresa.pkt](projeto-rede-empresa.pkt): simulação salva.
+- [imagens/](imagens/): capturas de validação de VLANs, trunk, interfaces e DHCP.
+
+### Documentação pendente
+- Exportar as saídas completas de `show running-config` para `configs/R1.txt` e `configs/SW1.txt`.
+- Adicionar capturas dos pings após a aplicação da ACL.
 
 ## Como reproduzir
-1. Abrir Projeto-Rede-Empresa.pkt no Packet Tracer.
+1. Abrir projeto-rede-empresa.pkt no Packet Tracer.
 2. Aguardar a convergência dos enlaces.
 3. Conferir DHCP nos PCs em Desktop → IP Configuration.
 4. Verificar os endereços com ipconfig.
